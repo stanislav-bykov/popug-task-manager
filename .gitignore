@@ -20,3 +20,4 @@ logs/
 *.iml
 *.ipr
 out/
+.DS_Store

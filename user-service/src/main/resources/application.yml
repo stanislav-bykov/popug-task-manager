@@ -1,0 +1,14 @@
+server:
+    port: 8081
+spring:
+    application:
+        name: user-service
+
+keycloak:
+    auth-server-url: http://localhost:8080/auth
+    realm: popug
+    ssl-required: external
+    resource: user-service
+    credentials:
+        secret: ${KEYCLOAK_CLIENT_SECRET}
+    use-resource-role-mappings: true
