@@ -1,24 +1,19 @@
 version: '3'
 
-volumes:
-    keycloak-postgres-storage:
-
 services:
   keycloak-postgres:
     image: postgres
     container_name: keycloak-postgres
     volumes:
-      - keycloak-postgres-storage:/var/lib/postgresql/data
+      - keycloak-storage:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${KEYCLOAK_POSTGRES_DB:-keycloak}
       POSTGRES_USER: ${KEYCLOAK_POSTGRES_DB_USER:-keycloak}
       POSTGRES_PASSWORD: ${KEYCLOAK_POSTGRES_DB_PASSWORD:-keycloak}
     ports:
-      - 5433:5432
+      - "5433:5432"
 
   keycloak:
-     #rmage: jboss/keycloak:latest
-     #image: localbuild/keycloak:17.0.0
     image: wizzn/keycloak:14
     container_name: keycloak
     restart: unless-stopped
@@ -33,8 +28,10 @@ services:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: password
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - keycloak-postgres
 
+volumes:
+  keycloak-storage:
 
