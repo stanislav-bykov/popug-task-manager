@@ -1,0 +1,31 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="user-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="local, scheduler" />
+    <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="FLYWAY_LOCATIONS" value="classpath:db/migration" />
+      <env name="KEYCLOAK_CLIENT_SECRET" value="50136761-bd50-4c80-b333-cb5a8e1419d2" />
+      <env name="POPUG_DB_HOST" value="127.0.0.1" />
+      <env name="POPUG_DB_NAME" value="user_storage" />
+      <env name="POPUG_DB_PASSWORD" value="popugpassword" />
+      <env name="POPUG_DB_PORT" value="5434" />
+      <env name="POPUG_DB_USER" value="popuguser" />
+      <env name="SCHEDULER_ADMIN_USER_CONFIGURE_ENABLED" value="true" />
+      <env name="SCHEDULER_ADMIN_USER_CONFIGURE_SCHEDULE" value="*/30 * * * * *" />
+      <env name="SCHEDULER_ADMIN_USER_REGISTER_ENABLED" value="true" />
+      <env name="SCHEDULER_ADMIN_USER_REGISTER_SCHEDULE" value="*/30 * * * * *" />
+      <env name="SCHEDULER_ADMIN_USER_RESET_PASSWORD_ENABLED" value="true" />
+      <env name="SCHEDULER_ADMIN_USER_RESET_PASSWORD_SCHEDULE" value="*/30 * * * * *" />
+      <env name="SCHEDULER_ADMIN_USER_ROLE_ASSIGN_ENABLED" value="true" />
+      <env name="SCHEDULER_ADMIN_USER_ROLE_ASSIGN_SCHEDULE" value="*/30 * * * * *" />
+      <env name="SCHEDULER_ADMIN_USER_ACTIVATE_ENABLED" value="true" />
+      <env name="SCHEDULER_ADMIN_USER_ACTIVATE_SCHEDULE" value="*/30 * * * * *" />
+    </envs>
+    <module name="popug-task-tracker.user-service.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.popug.tracker.user.Application" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

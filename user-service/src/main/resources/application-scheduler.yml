@@ -1,0 +1,18 @@
+scheduler:
+  job:
+    admin-user-register:
+      enabled: ${SCHEDULER_ADMIN_USER_REGISTER_ENABLED}
+      schedule: ${SCHEDULER_ADMIN_USER_REGISTER_SCHEDULE}
+    admin-user-reset-password:
+      enabled: ${SCHEDULER_ADMIN_USER_RESET_PASSWORD_ENABLED}
+      schedule: ${SCHEDULER_ADMIN_USER_RESET_PASSWORD_SCHEDULE}
+    admin-user-role-assign:
+      enabled: ${SCHEDULER_ADMIN_USER_ROLE_ASSIGN_ENABLED}
+      schedule: ${SCHEDULER_ADMIN_USER_ROLE_ASSIGN_SCHEDULE}
+    admin-user-configure:
+      enabled: ${SCHEDULER_ADMIN_USER_CONFIGURE_ENABLED}
+      schedule: ${SCHEDULER_ADMIN_USER_CONFIGURE_SCHEDULE}
+    admin-user-activate:
+      enabled: ${SCHEDULER_ADMIN_USER_ACTIVATE_ENABLED}
+      schedule: ${SCHEDULER_ADMIN_USER_ACTIVATE_SCHEDULE}
+

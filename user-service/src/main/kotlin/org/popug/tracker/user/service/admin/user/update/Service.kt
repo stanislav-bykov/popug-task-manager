@@ -12,6 +12,7 @@ class Service(
 ) : BusinessService<Api.Request, Api.Response> {
 
     override fun invoke(request: Api.Request): Api.Response =
+        // TODO: 15.05.2022 update user in db
         toResponse(adminClient.updateUser(request.toApiRequest()))
 
     private fun toResponse(user: UpdateUserResponse) = user.toResponse()

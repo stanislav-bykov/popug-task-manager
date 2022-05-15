@@ -1,6 +1,6 @@
 package org.popug.tracker.user.common.client.admin
 
-import org.popug.tracker.core.client.userManagement.RealmRole
+import org.popug.tracker.core.client.user.magenement.RealmRole
 
 object Api {
 
@@ -16,7 +16,7 @@ object Api {
     )
 
     data class CreateUserResponse(
-        val id: String
+        val id: String,
     )
 
     data class UpdateUserRequest(
