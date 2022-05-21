@@ -15,6 +15,8 @@ plugins {
     kotlin("plugin.spring") version kotlinVersion apply false
 }
 
+tasks.jar { enabled = false }
+tasks.build { enabled = false }
 // tasks.bootJar { enabled = false }
 // tasks.jar { enabled = true }
 // val ktorVersion by extra { "1.3.2" }

@@ -1,0 +1,21 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: payment-service
+  main:
+    banner-mode: off
+  kafka:
+    consumer:
+      group-id: payment-service-consumer-group
+    bootstrap-servers: localhost:9092
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: popug
+  ssl-required: external
+  resource: payment-service
+  credentials:
+    secret: ${KEYCLOAK_CLIENT_SECRET}
+  use-resource-role-mappings: true
+  bearer-only: true

@@ -3,31 +3,27 @@ package org.popug.tracker.core.messaging.streaming.task
 import org.popug.tracker.core.messaging.Message
 import org.popug.tracker.core.messaging.MessageSource.Streaming
 import org.popug.tracker.core.messaging.streaming.StreamingMessage
-import org.popug.tracker.core.messaging.streaming.StreamingMessageBody
+import org.popug.tracker.core.messaging.streaming.StreamingMessagePayload
 
-data class TaskStreamingMessage(override val body: TaskStreamingMessageBody) :
-    StreamingMessage<TaskStreamingMessageBody> {
+data class TaskStreamingMessage(override val payload: TaskStreamingMessagePayload) :
+    StreamingMessage<TaskStreamingMessagePayload> {
 
     override val metadata: Message.Metadata =
-        Message.Metadata(key = body.publicId, destinationTopic = Streaming.TASKS_STREAM)
+        Message.Metadata(key = payload.publicId, destinationTopic = Streaming.TASKS_STREAM)
 }
 
-sealed class TaskStreamingMessageBody : StreamingMessageBody
+sealed class TaskStreamingMessagePayload : StreamingMessagePayload
 
-data class CreatedTaskStreamingMessageBody(
+data class CreatedTaskStreamingMessagePayload(
+    override val publicId: String,
+    val userPublicId: String,
+    val description: String
+) : TaskStreamingMessagePayload()
+
+data class UpdatedTaskStreamingMessagePayload(
     override val publicId: String,
     val userPublicId: String,
     val description: String,
-    val credit: Int,
-    val debit: Int
-) : TaskStreamingMessageBody()
+) : TaskStreamingMessagePayload()
 
-data class UpdatedTaskStreamingMessageBody(
-    override val publicId: String,
-    val userPublicId: String,
-    val description: String,
-    val credit: Int,
-    val debit: Int
-) : TaskStreamingMessageBody()
-
-data class DeletedTaskStreamingMessageBody(override val publicId: String) : TaskStreamingMessageBody()
+data class DeletedTaskStreamingMessagePayload(override val publicId: String) : TaskStreamingMessagePayload()

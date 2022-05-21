@@ -47,7 +47,7 @@ class KeycloakAdminClient(
 
     override fun resetPassword(request: Api.UserUpdatePasswordRequest) = with(request) {
         getUserResource(id)
-            .run { this.resetPassword(request.toCredential()) }
+            .run { resetPassword(request.toCredential()) }
     }
 
     private fun extractUserId(response: Response) = CreatedResponseUtil.getCreatedId(response)

@@ -18,17 +18,17 @@ class DefaultKafkaProducer(
 
     private val logger = KotlinLogging.logger {}
 
-    fun invoke(message: Message.MessageBody, topic: String, key: String, headers: Map<String, String>) = run {
+    fun invoke(payload: Message.MessagePayload, topic: String, key: String, headers: Map<String, String>) = run {
         logger.debug(
             "try to publish into topic = {} message with key = {}, value = {} and headers = {}",
             topic,
             key,
-            message,
+            payload,
             headers
         )
 
         template.send(
-            MessageBuilder.withPayload(message)
+            MessageBuilder.withPayload(payload)
                 .setHeader(KafkaHeaders.TOPIC, topic)
                 .setHeader(KafkaHeaders.MESSAGE_KEY, key).apply {
                     headers.forEach { (key, value) -> setHeader(key, value) }
@@ -37,10 +37,10 @@ class DefaultKafkaProducer(
     }
 
     override fun send(message: Message, headers: Map<String, String>): Unit = with(message) {
-        invoke(body, metadata.destinationTopic, metadata.key, headers).get()
+        invoke(payload, metadata.destinationTopic, metadata.key, headers).get()
     }
 
     override fun send(message: Message): Unit = with(message) {
-        invoke(body, metadata.destinationTopic, metadata.key, emptyMap()).get()
+        invoke(payload, metadata.destinationTopic, metadata.key, emptyMap()).get()
     }
 }

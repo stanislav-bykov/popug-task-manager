@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  popug-storage:
+    image: postgres
+    container_name: popug-storage
+    command: ["-c", "shared_buffers=1024MB", "-c", "max_connections=500"]
+    volumes:
+      - ./db/scripts:/docker-entrypoint-initdb.d
+      - popug-storage:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POPUG_POSTGRES_DB_USER:-popuguser}
+      POSTGRES_PASSWORD: ${POPUG_POSTGRES_DB_PASSWORD:-popugpassword}
+    ports:
+      - "5434:5432"
+
+volumes:
+  popug-storage:

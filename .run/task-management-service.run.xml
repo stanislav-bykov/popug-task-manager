@@ -3,7 +3,7 @@
     <option name="ACTIVE_PROFILES" value="local" />
     <envs>
       <env name="FLYWAY_LOCATIONS" value="classpath:db/migration" />
-      <env name="KEYCLOAK_CLIENT_SECRET" value="e051ba0e-0849-469f-952c-4b5f275745e7" />
+      <env name="KEYCLOAK_CLIENT_SECRET" value="12932f2c-7fe3-4e64-9dca-5e6a49d6d137" />
       <env name="POPUG_DB_HOST" value="127.0.0.1" />
       <env name="POPUG_DB_NAME" value="task_management_storage" />
       <env name="POPUG_DB_PASSWORD" value="popugpassword" />

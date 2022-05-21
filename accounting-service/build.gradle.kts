@@ -5,7 +5,7 @@ dependencies {
 }
 
 tasks.bootJar {
-    mainClass.set("org.popug.tracker.user.Application")
+    mainClass.set("org.popug.tracker.accounting.Application")
 }
 
 allOpen {

@@ -2,8 +2,10 @@ package org.popug.tracker.core.messaging.streaming
 
 import org.popug.tracker.core.messaging.Message
 
-interface StreamingMessage<T : StreamingMessageBody> : Message {
-    override val body: T
+interface StreamingMessage<T : StreamingMessagePayload> : Message {
+    override val payload: T
 }
 
-interface StreamingMessageBody : Message.MessageBody
+interface StreamingMessagePayload : Message.MessagePayload {
+    val publicId: String
+}

@@ -11,7 +11,7 @@ class Service(
     private val taskRepository: TaskRepository
 ) : BusinessService<Unit, Api.Response> {
 
-    override fun invoke(request: Unit) = toResponse(taskRepository.findAllActive())
+    override fun invoke(request: Unit) = toResponse(taskRepository.findAllAssigned())
 
     private fun toResponse(tasks: Collection<Task>) =
         tasks.map { it.toResponse() }.run { Api.Response(this) }
@@ -21,8 +21,6 @@ class Service(
             TaskData(
                 id = id,
                 description = description,
-                credit = credit,
-                debit = debit,
                 worker = TaskData.WorkerData(
                     id = worker.id,
                     firstName = worker.firstName,

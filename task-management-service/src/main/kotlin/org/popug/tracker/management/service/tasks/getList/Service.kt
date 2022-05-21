@@ -11,7 +11,7 @@ class Service(
 ) : BusinessService<Api.Request, Api.Response> {
 
     override fun invoke(request: Api.Request) =
-        toResponse(taskRepository.findAllActiveByWorkerPublicId(publicId = request.userPublicId))
+        toResponse(taskRepository.findAllAssignedByWorkerPublicId(publicId = request.userPublicId))
 
     private fun toResponse(tasks: Collection<Task>) =
         tasks.map { it.toResponse() }.run { Api.Response(this) }

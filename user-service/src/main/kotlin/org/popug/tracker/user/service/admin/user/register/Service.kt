@@ -28,7 +28,7 @@ class Service(
     fun registerUser(task: UserExternalAccountCfgTask) {
         // TODO: 14.05.2022 handle case when user was created and transaction rollback
         with(task.userAccount) {
-            adminClient.createUser(this.toApiRequest())
+            adminClient.createUser(toApiRequest())
                 .also {
                     userAccountRepository.modifyPublicId(userId = id, publicId = it.id)
                     task.completeCfxStep()

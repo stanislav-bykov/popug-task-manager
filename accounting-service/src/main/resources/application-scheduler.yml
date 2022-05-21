@@ -1,0 +1,5 @@
+scheduler:
+  job:
+    admin-payout-forming:
+      enabled: ${SCHEDULER_ADMIN_PAYOUT_FORMING_ENABLED}
+      schedule: ${SCHEDULER_ADMIN_PAYOUT_FORMING_SCHEDULE}
