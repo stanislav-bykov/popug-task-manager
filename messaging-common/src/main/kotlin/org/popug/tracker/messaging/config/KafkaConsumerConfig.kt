@@ -1,4 +1,4 @@
-package org.popug.tracker.core.messaging.config
+package org.popug.tracker.messaging.config
 
 import mu.KLogging
 import org.apache.kafka.clients.consumer.ConsumerConfig.*
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory
 import org.springframework.kafka.core.ConsumerFactory
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory
+import org.springframework.kafka.listener.SeekToCurrentErrorHandler
 import org.springframework.kafka.support.serializer.JsonDeserializer
 
 @Configuration
@@ -34,6 +35,7 @@ class KafkaConsumerConfig {
     fun kafkaListenerContainerFactory(consumerFactory: ConsumerFactory<String, Any>): ConcurrentKafkaListenerContainerFactory<String, Any> {
         val factory = ConcurrentKafkaListenerContainerFactory<String, Any>()
         factory.consumerFactory = consumerFactory
+        factory.setErrorHandler(SeekToCurrentErrorHandler())
         return factory
     }
 

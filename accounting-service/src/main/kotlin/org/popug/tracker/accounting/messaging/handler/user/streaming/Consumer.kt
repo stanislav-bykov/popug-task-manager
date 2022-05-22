@@ -1,11 +1,11 @@
 package org.popug.tracker.accounting.messaging.handler.user.streaming
 
 import mu.KLogging
-import org.popug.tracker.core.messaging.MessageSource.Streaming
-import org.popug.tracker.core.messaging.streaming.user.CreatedUserStreamingMessagePayload
-import org.popug.tracker.core.messaging.streaming.user.DeletedUserStreamingMessagePayload
-import org.popug.tracker.core.messaging.streaming.user.UpdatedUserStreamingMessagePayload
-import org.popug.tracker.core.messaging.streaming.user.UserStreamingMessagePayload
+import org.popug.tracker.messaging.MessageSource.Streaming
+import org.popug.tracker.messaging.streaming.user.CreatedUserStreamingMessagePayload
+import org.popug.tracker.messaging.streaming.user.DeletedUserStreamingMessagePayload
+import org.popug.tracker.messaging.streaming.user.UpdatedUserStreamingMessagePayload
+import org.popug.tracker.messaging.streaming.user.UserStreamingMessagePayload
 import org.springframework.kafka.annotation.KafkaHandler
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component

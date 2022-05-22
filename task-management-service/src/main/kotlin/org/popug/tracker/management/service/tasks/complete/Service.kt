@@ -1,13 +1,13 @@
 package org.popug.tracker.management.service.tasks.complete
 
 import org.popug.tracker.core.business.BusinessService
-import org.popug.tracker.core.messaging.MessageProducer
-import org.popug.tracker.core.messaging.business.task.TaskCompletedBusinessEvent
-import org.popug.tracker.core.messaging.business.task.TaskCompletedBusinessEvent.TaskCompletedBusinessEventPayload
-import org.popug.tracker.core.messaging.streaming.task.TaskStreamingMessage
-import org.popug.tracker.core.messaging.streaming.task.UpdatedTaskStreamingMessagePayload
 import org.popug.tracker.management.dal.model.task.Task
 import org.popug.tracker.management.dal.repository.task.TaskRepository
+import org.popug.tracker.messaging.MessageProducer
+import org.popug.tracker.messaging.business.task.TaskCompletedBusinessEvent
+import org.popug.tracker.messaging.business.task.TaskCompletedBusinessEvent.TaskCompletedBusinessEventPayload
+import org.popug.tracker.messaging.streaming.task.TaskStreamingMessage
+import org.popug.tracker.messaging.streaming.task.UpdatedTaskStreamingMessagePayload
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

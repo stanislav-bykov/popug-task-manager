@@ -1,5 +1,6 @@
 dependencies {
     implementation(project(":common"))
+    implementation(project(":messaging-common"))
 }
 
 tasks.bootJar {

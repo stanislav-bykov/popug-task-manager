@@ -1,9 +1,9 @@
-package org.popug.tracker.core.messaging.config
+package org.popug.tracker.messaging.config
 
 import mu.KLogging
 import org.apache.kafka.clients.producer.ProducerConfig.*
 import org.apache.kafka.common.serialization.StringSerializer
-import org.popug.tracker.core.messaging.DefaultKafkaProducer
+import org.popug.tracker.messaging.DefaultKafkaProducer
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -20,6 +20,8 @@ class KafkaProducerConfig {
         logger.info(">>>my bootstrapAddress {}", kafkaProperties.bootstrapServers)
         val configProps = HashMap<String, Any>().also {
             it[BOOTSTRAP_SERVERS_CONFIG] = kafkaProperties.bootstrapServers
+            it[ACKS_CONFIG] = "all"
+            it[RETRIES_CONFIG] = 10
             it[KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
             it[VALUE_SERIALIZER_CLASS_CONFIG] = JsonSerializer::class.java
         }

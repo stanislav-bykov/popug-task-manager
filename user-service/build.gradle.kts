@@ -1,5 +1,6 @@
 dependencies {
     implementation(project(":common"))
+    implementation(project(":messaging-common"))
     implementation("org.postgresql:postgresql:42.3.5")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }

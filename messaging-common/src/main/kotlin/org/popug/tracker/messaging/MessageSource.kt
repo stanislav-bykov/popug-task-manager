@@ -1,4 +1,4 @@
-package org.popug.tracker.core.messaging
+package org.popug.tracker.messaging
 
 object MessageSource {
 

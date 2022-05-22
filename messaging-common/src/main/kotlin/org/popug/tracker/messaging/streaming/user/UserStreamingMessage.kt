@@ -1,10 +1,10 @@
-package org.popug.tracker.core.messaging.streaming.user
+package org.popug.tracker.messaging.streaming.user
 
 import org.popug.tracker.core.dal.common.model.user.UserRole
-import org.popug.tracker.core.messaging.Message
-import org.popug.tracker.core.messaging.MessageSource.Streaming
-import org.popug.tracker.core.messaging.streaming.StreamingMessage
-import org.popug.tracker.core.messaging.streaming.StreamingMessagePayload
+import org.popug.tracker.messaging.Message
+import org.popug.tracker.messaging.MessageSource.Streaming
+import org.popug.tracker.messaging.streaming.StreamingMessage
+import org.popug.tracker.messaging.streaming.StreamingMessagePayload
 
 data class UserStreamingMessage(override val payload: UserStreamingMessagePayload) :
     StreamingMessage<UserStreamingMessagePayload> {

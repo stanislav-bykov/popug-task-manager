@@ -1,16 +1,16 @@
 package org.popug.tracker.management.service.tasks.create
 
 import org.popug.tracker.core.business.BusinessService
-import org.popug.tracker.core.messaging.MessageProducer
-import org.popug.tracker.core.messaging.business.task.TaskAssignedBusinessEvent
-import org.popug.tracker.core.messaging.business.task.TaskAssignedBusinessEvent.TaskAssignedBusinessEventPayload
-import org.popug.tracker.core.messaging.streaming.task.CreatedTaskStreamingMessagePayload
-import org.popug.tracker.core.messaging.streaming.task.TaskStreamingMessage
 import org.popug.tracker.management.dal.model.task.Task
 import org.popug.tracker.management.dal.model.worker.Worker
 import org.popug.tracker.management.dal.repository.task.TaskRepository
 import org.popug.tracker.management.dal.repository.worker.WorkerRepository
 import org.popug.tracker.management.service.tasks.create.Api.Response.WorkerData
+import org.popug.tracker.messaging.MessageProducer
+import org.popug.tracker.messaging.business.task.TaskAssignedBusinessEvent
+import org.popug.tracker.messaging.business.task.TaskAssignedBusinessEvent.TaskAssignedBusinessEventPayload
+import org.popug.tracker.messaging.streaming.task.CreatedTaskStreamingMessageExpandedPayload
+import org.popug.tracker.messaging.streaming.task.TaskStreamingMessage
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -54,10 +54,11 @@ class Service(
         }
 
         fun Task.toStreamingMessage() = TaskStreamingMessage(
-            CreatedTaskStreamingMessagePayload(
+            CreatedTaskStreamingMessageExpandedPayload(
                 publicId = publicId,
                 userPublicId = worker.publicId,
-                description = description
+                jiraId = "jiraId",
+                title = "CreatedTaskStreamingMessageExpandedPayload"
             )
         )
 

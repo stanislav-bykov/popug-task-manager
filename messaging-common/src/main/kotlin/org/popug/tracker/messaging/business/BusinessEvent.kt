@@ -1,6 +1,6 @@
-package org.popug.tracker.core.messaging.business
+package org.popug.tracker.messaging.business
 
-import org.popug.tracker.core.messaging.Message
+import org.popug.tracker.messaging.Message
 
 interface BusinessEvent<T : BusinessEventPayload> : Message {
     override val payload: T

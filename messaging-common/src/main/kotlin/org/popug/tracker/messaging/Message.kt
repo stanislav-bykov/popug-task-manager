@@ -1,4 +1,4 @@
-package org.popug.tracker.core.messaging
+package org.popug.tracker.messaging
 
 interface Message {
     val metadata: Metadata
@@ -10,4 +10,8 @@ interface Message {
     )
 
     interface MessagePayload
+
+    object MessageHeader {
+        const val SCHEMA_SOURCE = "SCHEMA_SOURCE"
+    }
 }

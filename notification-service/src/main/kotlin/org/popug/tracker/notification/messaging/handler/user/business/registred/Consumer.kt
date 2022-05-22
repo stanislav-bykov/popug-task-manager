@@ -1,8 +1,8 @@
 package org.popug.tracker.notification.messaging.handler.user.business.registred
 
 import mu.KLogging
-import org.popug.tracker.core.messaging.MessageSource.Business
-import org.popug.tracker.core.messaging.business.user.UserRegisteredBusinessEvent.UserRegisteredBusinessEventPayload
+import org.popug.tracker.messaging.MessageSource.Business
+import org.popug.tracker.messaging.business.user.UserRegisteredBusinessEvent.UserRegisteredBusinessEventPayload
 import org.popug.tracker.notification.messaging.service.user.business.notify.Api
 import org.springframework.kafka.annotation.KafkaHandler
 import org.springframework.kafka.annotation.KafkaListener

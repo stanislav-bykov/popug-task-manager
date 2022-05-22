@@ -6,10 +6,10 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator
 
 @ConfigurationPropertiesScan(
-    basePackages = ["org.popug.tracker.payment", "org.popug.tracker.core"]
+    basePackages = ["org.popug.tracker"]
 )
 @SpringBootApplication(
-    scanBasePackages = ["org.popug.tracker.payment", "org.popug.tracker.core"],
+    scanBasePackages = ["org.popug.tracker"],
     nameGenerator = FullyQualifiedAnnotationBeanNameGenerator::class
 )
 class Application

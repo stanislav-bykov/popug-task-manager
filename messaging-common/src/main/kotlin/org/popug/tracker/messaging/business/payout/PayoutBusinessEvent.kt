@@ -1,12 +1,12 @@
-package org.popug.tracker.core.messaging.business.payout
+package org.popug.tracker.messaging.business.payout
 
-import org.popug.tracker.core.messaging.Message
-import org.popug.tracker.core.messaging.MessageSource.Business.Payout.PAYOUT_FORMED
-import org.popug.tracker.core.messaging.MessageSource.Business.Payout.PAYOUT_PERFORMED
-import org.popug.tracker.core.messaging.business.BusinessEvent
-import org.popug.tracker.core.messaging.business.BusinessEventPayload
-import org.popug.tracker.core.messaging.business.payout.PayoutFormedBusinessEvent.PayoutFormedBusinessEventPayload
-import org.popug.tracker.core.messaging.business.payout.PayoutPerformedBusinessEvent.PayoutPerformedBusinessEventPayload
+import org.popug.tracker.messaging.Message
+import org.popug.tracker.messaging.MessageSource.Business.Payout.PAYOUT_FORMED
+import org.popug.tracker.messaging.MessageSource.Business.Payout.PAYOUT_PERFORMED
+import org.popug.tracker.messaging.business.BusinessEvent
+import org.popug.tracker.messaging.business.BusinessEventPayload
+import org.popug.tracker.messaging.business.payout.PayoutFormedBusinessEvent.PayoutFormedBusinessEventPayload
+import org.popug.tracker.messaging.business.payout.PayoutPerformedBusinessEvent.PayoutPerformedBusinessEventPayload
 import java.math.BigDecimal
 
 data class PayoutFormedBusinessEvent(override val payload: PayoutFormedBusinessEventPayload) :

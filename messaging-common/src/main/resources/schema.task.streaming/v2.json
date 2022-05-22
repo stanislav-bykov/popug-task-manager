@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Streaming.Task.v2",
+  "description": "json schema for task streaming event (version 2)",
+  "properties": {
+    "publicId": {
+      "type": "string"
+    },
+    "userPublicId": {
+      "type": "string"
+    },
+    "jiraId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "publicId",
+    "userPublicId",
+    "jiraId",
+    "title"
+  ]
+}

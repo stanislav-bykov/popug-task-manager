@@ -1,11 +1,11 @@
 package org.popug.tracker.user.service.admin.user.activate
 
 import org.popug.tracker.core.business.UnitBusinessService
-import org.popug.tracker.core.messaging.MessageProducer
-import org.popug.tracker.core.messaging.business.user.UserRegisteredBusinessEvent
-import org.popug.tracker.core.messaging.business.user.UserRegisteredBusinessEvent.UserRegisteredBusinessEventPayload
-import org.popug.tracker.core.messaging.streaming.user.CreatedUserStreamingMessagePayload
-import org.popug.tracker.core.messaging.streaming.user.UserStreamingMessage
+import org.popug.tracker.messaging.MessageProducer
+import org.popug.tracker.messaging.business.user.UserRegisteredBusinessEvent
+import org.popug.tracker.messaging.business.user.UserRegisteredBusinessEvent.UserRegisteredBusinessEventPayload
+import org.popug.tracker.messaging.streaming.user.CreatedUserStreamingMessagePayload
+import org.popug.tracker.messaging.streaming.user.UserStreamingMessage
 import org.popug.tracker.user.dal.model.user.UserAccount
 import org.popug.tracker.user.dal.model.user.UserAccount.AccountStatus.ACTIVE
 import org.popug.tracker.user.dal.model.user.UserAccount.AccountStatus.CONFIGURED

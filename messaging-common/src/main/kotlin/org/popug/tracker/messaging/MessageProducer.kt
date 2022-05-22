@@ -1,9 +1,11 @@
-package org.popug.tracker.core.messaging
+package org.popug.tracker.messaging
 
 import mu.KotlinLogging
+import org.popug.tracker.messaging.schema.SchemaSource
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.KafkaHeaders
 import org.springframework.messaging.support.MessageBuilder
+import org.springframework.messaging.support.MessageHeaderAccessor
 
 interface MessageProducer {
 
@@ -19,20 +21,33 @@ class DefaultKafkaProducer(
     private val logger = KotlinLogging.logger {}
 
     fun invoke(payload: Message.MessagePayload, topic: String, key: String, headers: Map<String, String>) = run {
+
+        headers.entries
+        val headerAccessor = MessageHeaderAccessor()
+            .apply {
+                setHeader(KafkaHeaders.TOPIC, topic)
+                setHeader(KafkaHeaders.MESSAGE_KEY, key)
+            }
+
+        with(payload.javaClass) {
+            if (isAnnotationPresent(SchemaSource::class.java)) {
+                val schemaSource = getAnnotation(SchemaSource::class.java)
+                headerAccessor.setHeader("SCHEMA_SOURCE", schemaSource.source)
+            }
+        }
+
         logger.debug(
             "try to publish into topic = {} message with key = {}, value = {} and headers = {}",
             topic,
             key,
             payload,
-            headers
+            headerAccessor
         )
 
         template.send(
             MessageBuilder.withPayload(payload)
-                .setHeader(KafkaHeaders.TOPIC, topic)
-                .setHeader(KafkaHeaders.MESSAGE_KEY, key).apply {
-                    headers.forEach { (key, value) -> setHeader(key, value) }
-                }.build()
+                .setHeaders(headerAccessor)
+                .build()
         )
     }
 

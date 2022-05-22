@@ -1,6 +1,6 @@
-package org.popug.tracker.core.messaging.streaming
+package org.popug.tracker.messaging.streaming
 
-import org.popug.tracker.core.messaging.Message
+import org.popug.tracker.messaging.Message
 
 interface StreamingMessage<T : StreamingMessagePayload> : Message {
     override val payload: T

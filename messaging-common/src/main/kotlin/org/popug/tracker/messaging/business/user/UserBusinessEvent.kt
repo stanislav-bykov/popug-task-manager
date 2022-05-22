@@ -1,10 +1,10 @@
-package org.popug.tracker.core.messaging.business.user
+package org.popug.tracker.messaging.business.user
 
-import org.popug.tracker.core.messaging.Message
-import org.popug.tracker.core.messaging.MessageSource.Business.Users.USER_REGISTERED
-import org.popug.tracker.core.messaging.business.BusinessEvent
-import org.popug.tracker.core.messaging.business.BusinessEventPayload
-import org.popug.tracker.core.messaging.business.user.UserRegisteredBusinessEvent.UserRegisteredBusinessEventPayload
+import org.popug.tracker.messaging.Message
+import org.popug.tracker.messaging.MessageSource.Business.Users.USER_REGISTERED
+import org.popug.tracker.messaging.business.BusinessEvent
+import org.popug.tracker.messaging.business.BusinessEventPayload
+import org.popug.tracker.messaging.business.user.UserRegisteredBusinessEvent.UserRegisteredBusinessEventPayload
 
 data class UserRegisteredBusinessEvent(override val payload: UserRegisteredBusinessEventPayload) :
     BusinessEvent<UserRegisteredBusinessEventPayload> {

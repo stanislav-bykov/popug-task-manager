@@ -3,8 +3,8 @@ package org.popug.tracker.accounting.messaging.handler.task.business.completed
 import mu.KLogging
 import org.popug.tracker.accounting.messaging.service.task.business.completed.Api
 import org.popug.tracker.accounting.messaging.service.task.business.completed.Service
-import org.popug.tracker.core.messaging.MessageSource.Business
-import org.popug.tracker.core.messaging.business.task.TaskCompletedBusinessEvent.TaskCompletedBusinessEventPayload
+import org.popug.tracker.messaging.MessageSource.Business
+import org.popug.tracker.messaging.business.task.TaskCompletedBusinessEvent.TaskCompletedBusinessEventPayload
 import org.springframework.kafka.annotation.KafkaHandler
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component

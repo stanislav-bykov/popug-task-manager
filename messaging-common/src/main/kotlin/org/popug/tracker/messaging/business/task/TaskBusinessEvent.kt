@@ -1,12 +1,12 @@
-package org.popug.tracker.core.messaging.business.task
+package org.popug.tracker.messaging.business.task
 
-import org.popug.tracker.core.messaging.Message
-import org.popug.tracker.core.messaging.MessageSource.Business.Tasks.TASK_ASSIGNED
-import org.popug.tracker.core.messaging.MessageSource.Business.Tasks.TASK_COMPLETED
-import org.popug.tracker.core.messaging.business.BusinessEvent
-import org.popug.tracker.core.messaging.business.BusinessEventPayload
-import org.popug.tracker.core.messaging.business.task.TaskAssignedBusinessEvent.TaskAssignedBusinessEventPayload
-import org.popug.tracker.core.messaging.business.task.TaskCompletedBusinessEvent.TaskCompletedBusinessEventPayload
+import org.popug.tracker.messaging.Message
+import org.popug.tracker.messaging.MessageSource.Business.Tasks.TASK_ASSIGNED
+import org.popug.tracker.messaging.MessageSource.Business.Tasks.TASK_COMPLETED
+import org.popug.tracker.messaging.business.BusinessEvent
+import org.popug.tracker.messaging.business.BusinessEventPayload
+import org.popug.tracker.messaging.business.task.TaskAssignedBusinessEvent.TaskAssignedBusinessEventPayload
+import org.popug.tracker.messaging.business.task.TaskCompletedBusinessEvent.TaskCompletedBusinessEventPayload
 
 data class TaskAssignedBusinessEvent(override val payload: TaskAssignedBusinessEventPayload) :
     BusinessEvent<TaskAssignedBusinessEventPayload> {
