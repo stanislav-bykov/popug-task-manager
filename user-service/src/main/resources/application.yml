@@ -1,14 +1,38 @@
 server:
-    port: 8081
+  port: 8081
 spring:
-    application:
-        name: user-service
+  application:
+    name: user-service
+  main:
+    banner-mode: off
+  kafka:
+    consumer:
+      group-id: user-service-consumer-group
+    bootstrap-servers: localhost:9092
+
+  datasource:
+    url: jdbc:postgresql://${POPUG_DB_HOST}:${POPUG_DB_PORT}/${POPUG_DB_NAME}
+    username: ${POPUG_DB_USER}
+    password: ${POPUG_DB_PASSWORD}
+    hikari:
+      connection-timeout: 3000
+      validation-timeout: 500
+      leak-detection-threshold: 30000
+      max-lifetime: 120000
+      maximum-pool-size: 40
+      connection-test-query: select 1
+  flyway:
+    locations: ${MIGRATION_LOCATIONS},
+    out-of-order: true
+    url: jdbc:postgresql://${POPUG_DB_HOST}:${POPUG_DB_PORT}/${POPUG_DB_NAME}
+    user: ${POPUG_DB_USER}
+    password: ${POPUG_DB_PASSWORD}
 
 keycloak:
-    auth-server-url: http://localhost:8080/auth
-    realm: popug
-    ssl-required: external
-    resource: user-service
-    credentials:
-        secret: ${KEYCLOAK_CLIENT_SECRET}
-    use-resource-role-mappings: true
+  auth-server-url: http://localhost:8080/auth
+  realm: popug
+  ssl-required: external
+  resource: user-service
+  credentials:
+    secret: ${KEYCLOAK_CLIENT_SECRET}
+  use-resource-role-mappings: true

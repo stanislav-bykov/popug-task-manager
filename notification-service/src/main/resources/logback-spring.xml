@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProfile name="local">
+        <appender name="plainTextAppender" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%green(%d{ISO8601}) %highlight(%-5level) [%t] %yellow(%logger{35}): %msg%n%throwable</pattern>
+            </encoder>
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="plainTextAppender"/>
+        </root>
+
+        <logger name="org.springframework" level="WARN"/>
+        <logger name="org.keycloak" level="DEBUG"/>
+    </springProfile>
+
+    <springProfile name="!local &amp; !test">
+        <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="jsonConsoleAppender"/>
+        </root>
+
+        <logger name="org.popug" level="DEBUG"/>
+        <logger name="org.springframework" level="WARN"/>
+    </springProfile>
+
+</configuration>

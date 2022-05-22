@@ -4,7 +4,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator
+import org.springframework.scheduling.annotation.EnableScheduling
 
+@EnableScheduling
 @ConfigurationPropertiesScan(
     basePackages = ["org.popug.tracker.user", "org.popug.tracker.core"]
 )
