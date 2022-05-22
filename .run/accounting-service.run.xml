@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="accounting-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="local,scheduler" />
+    <envs>
+      <env name="FLYWAY_LOCATIONS" value="classpath:db/migration" />
+      <env name="KEYCLOAK_CLIENT_SECRET" value="893e7965-e955-4f63-b3ec-65d6d69425fe" />
+      <env name="POPUG_DB_HOST" value="127.0.0.1" />
+      <env name="POPUG_DB_NAME" value="accounting_storage" />
+      <env name="POPUG_DB_PASSWORD" value="popugpassword" />
+      <env name="POPUG_DB_PORT" value="5434" />
+      <env name="POPUG_DB_USER" value="popuguser" />
+      <env name="SCHEDULER_ADMIN_PAYOUT_FORMING_ENABLED" value="true" />
+      <env name="SCHEDULER_ADMIN_PAYOUT_FORMING_SCHEDULE" value="*/1 * * * * *" />
+    </envs>
+    <module name="popug-task-tracker.accounting-service.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.popug.tracker.accounting.Application" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

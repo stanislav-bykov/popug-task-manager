@@ -8,10 +8,10 @@ interface TaskRepository : JpaRepository<Task, Long> {
 
     fun findAllByStatus(status: TaskStatus): Collection<Task>
 
-    fun findAllActive() = findAllByStatus(TaskStatus.ACTIVE)
+    fun findAllAssigned() = findAllByStatus(TaskStatus.ASSIGNED)
 
     fun findAllByWorkerPublicIdAndStatus(publicId: String, status: TaskStatus): Collection<Task>
 
-    fun findAllActiveByWorkerPublicId(publicId: String) =
-        findAllByWorkerPublicIdAndStatus(publicId = publicId, TaskStatus.ACTIVE)
+    fun findAllAssignedByWorkerPublicId(publicId: String) =
+        findAllByWorkerPublicIdAndStatus(publicId, TaskStatus.ASSIGNED)
 }

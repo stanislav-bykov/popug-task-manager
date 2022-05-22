@@ -23,6 +23,10 @@ data class Worker(
     }
 ) : Auditable() {
 
+    fun disable() {
+        status = DISABLED
+    }
+
     enum class WorkerStatus {
         ACTIVE,
         DISABLED

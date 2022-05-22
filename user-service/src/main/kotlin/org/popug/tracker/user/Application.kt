@@ -8,10 +8,10 @@ import org.springframework.scheduling.annotation.EnableScheduling
 
 @EnableScheduling
 @ConfigurationPropertiesScan(
-    basePackages = ["org.popug.tracker.user", "org.popug.tracker.core"]
+    basePackages = ["org.popug.tracker"]
 )
 @SpringBootApplication(
-    scanBasePackages = ["org.popug.tracker.user", "org.popug.tracker.core"],
+    scanBasePackages = ["org.popug.tracker"],
     nameGenerator = FullyQualifiedAnnotationBeanNameGenerator::class
 )
 class Application

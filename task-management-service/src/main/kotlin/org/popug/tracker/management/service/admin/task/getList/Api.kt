@@ -8,8 +8,6 @@ object Api {
         data class TaskData(
             val id: Long,
             val description: String,
-            val credit: Int,
-            val debit: Int,
             val worker: WorkerData,
         ) {
             data class WorkerData(

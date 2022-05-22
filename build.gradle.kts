@@ -15,9 +15,29 @@ plugins {
     kotlin("plugin.spring") version kotlinVersion apply false
 }
 
-// tasks.bootJar { enabled = false }
-// tasks.jar { enabled = true }
-// val ktorVersion by extra { "1.3.2" }
+tasks.jar { enabled = false }
+tasks.build { enabled = false }
+
+val schemaResources = "schema-resources"
+
+sourceSets {
+    create(schemaResources) {
+        resources {
+            // Universal logback config for all sub-modules
+            srcDir("${project(":messaging-common").projectDir}/src/main/resources/schema")
+        }
+    }
+
+    if (!project.name.endsWith("common")) {
+        sourceSets {
+            main {
+                resources {
+                    srcDirs += getByName(schemaResources).resources
+                }
+            }
+        }
+    }
+}
 
 allprojects {
     group = "org.popug.tracker"
@@ -25,6 +45,8 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven(url = "https://packages.confluent.io/maven/")
+        maven(url = "https://jitpack.io")
     }
 }
 
@@ -46,6 +68,8 @@ subprojects {
     dependencies {
         // messaging
         implementation("org.springframework.kafka:spring-kafka")
+        implementation("io.confluent:kafka-json-schema-serializer:7.1.0")
+        implementation("com.github.everit-org.json-schema:org.everit.json.schema:1.14.1")
 
         // security
         implementation("org.keycloak:keycloak-spring-boot-starter:18.0.0")
